@@ -1,7 +1,8 @@
 ## Welcome to GitHub Pages
 
 <html>
-  
+  <script src='https://d3js.org/d3.v5.min.js'></script>
+  <style> circle {fill: lightblue; stroke: black;}</style>
   </html>
 
 You can use the [editor on GitHub](https://github.com/kevyn357/Narrative-Visualization/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
