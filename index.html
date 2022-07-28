@@ -16,8 +16,8 @@
       var fmt1 = d3.timeParse("%b-%Y");
       console.log(fmt1("Jan-2000"));
 
-      var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([50,1450]);
-      var yCrude = d3.scaleLinear().domain([0, 150]).range([500,0]);
+      var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
+      var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
 
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
@@ -35,7 +35,7 @@
       );
 
       const xAxis = d3.axisBottom(x).ticks(12).tickFormat(d3.timeFormat("%b"));
-      d3.select("svg").append("g").attr("transform", "translate("+50+","+1000+")")
+      d3.select("svg").append("g").attr("transform", "translate("+50+","+475+")")
       .call(xAxis);
 
       //const xAxis = d3.axisBottom().scale(x).ticks(12).tickFormat(d => months[d.getMonth()]);
