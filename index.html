@@ -24,16 +24,16 @@
       .attr("cx", function(d,i){return x(fmt1(d.Date));})
       .attr("cy", function(d,i){return yCrude(d.USCrude);})
       .attr("r", 2)
+      ;
+
+      d3.select("svg").append("g").attr("transform", "translate("+50+","+50+")")
+      .attr("fill", "none")
+      .call(d3.axisLeft(yCrude)
       );
 
       d3.select("svg").append("g").attr("transform", "translate("+50+","+50+")")
       .attr("fill", "none")
-      .call(d3.axisLeft(yCrude))
-      );
-
-      d3.select("svg").append("g").attr("transform", "translate("+50+","+50+")")
-      .attr("fill", "none")
-      .call(d3.axisBottom(x))
+      .call(d3.axisBottom(x)
       );
       
       }
