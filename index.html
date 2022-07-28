@@ -8,13 +8,11 @@
     <script>
       async function init()
       {
-      //const data = await d3.csv('https://github.com/kevyn357/Narrative-Visualization/blob/gh-pages/crude.csv');
       const dataCrude = await d3.csv('crude.csv');
       
       
       var fmt1 = d3.timeParse("%m-%Y");
 
-      //var x = d3.scaleLinear().domain([2000, 2022]).range([0,1500]);
       var x = d3.scaleTime().domain([new Date("2000-01-01"), new Date("2022-12-31")]).range(0,1500);
       var yCrude = d3.scaleLinear().domain([0, 150]).range([500,0]);
 
@@ -26,6 +24,7 @@
       .attr("cx", function(d,i){return x(fmt1(d.Date));})
       .attr("cy", function(d,i){return yCrude(d.USCrude);})
       .attr("r", 2)
+      );
 
       d3.select("svg").append("g").attr("transform", "translate("+50+","+50+")")
       .attr("fill", "none")
@@ -36,6 +35,7 @@
       .attr("fill", "none")
       .call(d3.axisBottom(x))
       );
+      
       }
 
       
