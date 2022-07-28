@@ -35,7 +35,7 @@
       );
 
       const xAxis = d3.axisBottom(x).ticks(12).tickFormat(d3.timeFormat("%b"));
-      d3.select("svg").append("g").attr("transform", "translate("+50+","+1400+")")
+      d3.select("svg").append("g").attr("transform", "translate("+50+","+1000+")")
       .call(xAxis);
 
       //const xAxis = d3.axisBottom().scale(x).ticks(12).tickFormat(d => months[d.getMonth()]);
