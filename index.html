@@ -9,7 +9,7 @@
       async function init()
       {
       //const data = await d3.csv('https://github.com/kevyn357/Narrative-Visualization/blob/gh-pages/crude.csv');
-      const dataCrude = await d3.csv('crude.csv');
+      const data = await d3.csv('crude.csv');
       }
       
       var fmt1 = d3.timeParse("%m-%Y");
@@ -20,7 +20,7 @@
 
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
-      .data(dataCrude)
+      .data(data)
       .enter()
       .append("circle")
       .attr("cx", function(d,i){return x(fmt1(d.Date));})
