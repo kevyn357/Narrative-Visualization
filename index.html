@@ -13,8 +13,7 @@
       
       var fmt1 = d3.timeParse("%m-%Y");
 
-      //var x = d3.scaleTime().domain([new Date("2000-01-01"), new Date("2022-12-31")]).range(0,1500);
-      var x = d3.scaleTime().domain([timeFormat.parse('01/01/2000'), timeFormat.parse('12/31/2022')]).range(0,1500);
+      //var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range(0,1500);
       var yCrude = d3.scaleLinear().domain([0, 150]).range([500,0]);
 
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
