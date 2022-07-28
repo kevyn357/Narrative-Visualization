@@ -32,12 +32,16 @@
       .call(d3.axisLeft(yCrude)
       );
 
+      const xAxis = d3.axisBottom().scale(x).ticks(12).tickFormat(d => months[d.getMonth()]);
       d3.select("svg").append("g").attr("transform", "translate("+50+","+1500+")")
-      .attr("fill", "none")
-      .call(d3.axisBottom(x))
-      .ticks(12)
-      .tickFormat(d => months[d.getMonth()])
-      ;
+      .call(xAxis);
+      
+      //d3.select("svg").append("g").attr("transform", "translate("+50+","+1500+")")
+      //.attr("fill", "none")
+      //.call(d3.axisBottom(x))
+      //.ticks(12)
+      //.tickFormat(d => months[d.getMonth()])
+      //;
       
       }
 
