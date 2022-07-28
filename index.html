@@ -9,7 +9,8 @@
       async function init()
       {
       const dataCrude = await d3.csv('crude.csv');
-      
+
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       
       var fmt1 = d3.timeParse("%m-%Y");
 
@@ -33,6 +34,9 @@
 
       d3.select("svg").append("g").attr("transform", "translate("+50+","+1500+")")
       .attr("fill", "none")
+      .scale(x)
+      .ticks(12)
+      .tockFormat(d => months[d.getMonth()])
       .call(d3.axisBottom(x)
       );
       
