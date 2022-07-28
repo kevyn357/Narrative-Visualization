@@ -37,10 +37,11 @@
       const xAxis = d3.axisBottom(x).ticks(24).tickFormat(d3.timeFormat("%b-%Y"));
       d3.select("svg").append("g").attr("transform", "translate("+50+","+475+")")
       .call(xAxis)
+      .selectAll("text") 
       .style("text-anchor", "end")
-    .attr("dx", "-.5em")
-    .attr("dy", "-.1em")
-    .attr("transform", "rotate(-70)")
+      .attr("dx", "-.5em")
+      .attr("dy", "-.1em")
+      .attr("transform", "rotate(-70)")
       ;
 
       //const xAxis = d3.axisBottom().scale(x).ticks(12).tickFormat(d => months[d.getMonth()]);
