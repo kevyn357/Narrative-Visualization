@@ -12,7 +12,7 @@
       const dataCrude = await d3.csv('crude.csv');
       }
       
-      var fmt1 = d3.timeFormat("%m-%Y").parse();
+      var fmt1 = d3.timeParse("%m-%Y");
 
       //var x = d3.scaleLinear().domain([2000, 2022]).range([0,1500]);
       var x = d3.scaleTime().domain([new Date("2000-01-01"), new Date("2022-12-31")]).range(0,1500);
