@@ -11,8 +11,9 @@
       const dataPump = await d3.csv('usPump.csv');
       console.log(dataPump);
 
-      var fmt1 = d3.timeParse("%e-%b-%Y");
+      var fmt1 = d3.timeParse("%e-%b-%y");
       console.log(fmt1("06-Jan-2000"));
+      console.log(fmt1("29-May-00"));
 
       var xPump = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
       var yPump = d3.scaleLinear().domain([0, 5]).range([425,0]);
