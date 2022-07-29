@@ -8,30 +8,28 @@
     <script>
       async function init()
       {
-      const dataCrude = await d3.csv('crude.csv');
+      const dataPump = await d3.csv('usPump.csv');
       console.log(dataCrude);
 
-      //const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      
-      var fmt1 = d3.timeParse("%b-%Y");
-      console.log(fmt1("Jan-2000"));
+      var fmt1 = d3.timeParse("%e-%b-%Y");
+      console.log(fmt1("6-Jan-2000"));
 
-      var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
-      var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
+      var xPump = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
+      var yPump = d3.scaleLinear().domain([0, 150]).range([425,0]);
 
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
-      .data(dataCrude)
+      .data(dataPump)
       .enter()
       .append("circle")
-      .attr("cx", function(d,i){return x(fmt1(d.Date));})
-      .attr("cy", function(d,i){return yCrude(d.USCrude);})
+      .attr("cx", function(d,i){return xPump(fmt1(d.Date));})
+      .attr("cy", function(d,i){return yPump(d.USRetail);})
       .attr("r", 2)
       ;
 
       d3.select("svg").append("g").attr("transform", "translate("+50+","+50+")")
       .attr("fill", "none")
-      .call(d3.axisLeft(yCrude)
+      .call(d3.axisLeft(yPump)
       );
 
       const xAxis = d3.axisBottom(x).ticks(24).tickFormat(d3.timeFormat("%b-%Y"));
@@ -43,21 +41,7 @@
       .attr("dy", "-.1em")
       .attr("transform", "rotate(-70)")
       ;
-      //http://www.d3noob.org/2013/01/how-to-rotate-text-labels-for-x-axis-of.html
-      //https://stackoverflow.com/questions/67468191/how-to-convert-d3-time-scale-from-v3-to-v4
-
-      //https://d3-graph-gallery.com/graph/connectedscatter_multi.html
       
-      //const xAxis = d3.axisBottom().scale(x).ticks(12).tickFormat(d => months[d.getMonth()]);
-      //d3.select("svg").append("g").attr("transform", "translate("+50+","+1500+")")
-      //.call(xAxis);
-      
-      //d3.select("svg").append("g").attr("transform", "translate("+50+","+1500+")")
-      //.attr("fill", "none")
-      //.call(d3.axisBottom(x))
-      //.ticks(12)
-      //.tickFormat(d => months[d.getMonth()])
-      //;
       
       }
 
