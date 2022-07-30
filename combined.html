@@ -67,7 +67,7 @@
       ;
 
       //http://www.d3noob.org/2013/01/adding-title-to-your-d3js-graph.html
-      svg.append("text")
+      d3.select("svg").append("text")
         .attr("x", (width / 2))             
         .attr("y", 20)
         .attr("text-anchor", "middle")  
