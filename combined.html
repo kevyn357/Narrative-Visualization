@@ -4,7 +4,7 @@
   <style> circle {fill: lightblue; stroke: black;}</style>
   <style> ellipse {fill: green; stroke: black;}</style>
   <!-- <body onload='init()'> -->
-    <svg width=1500 height=550> </svg>
+    <svg width=1600 height=550> </svg>
     
     <script>
       async function init()
@@ -41,7 +41,7 @@
       .enter()
       .append("ellipse")
       .attr("cx", function(d,i){return x(fmt2(d.Date));})
-      .attr("cy", function(d,i){return yCrude(d.USRetail);})
+      .attr("cy", function(d,i){return yPump(d.USRetail);})
       .attr("rx", 2)
       .attr("ry", 2)
       ;
@@ -51,7 +51,7 @@
       .call(d3.axisLeft(yCrude)
       );
 
-      d3.select("svg").append("g").attr("transform", "translate("+1475+","+50+")")
+      d3.select("svg").append("g").attr("transform", "translate("+1500+","+50+")")
       .attr("fill", "none")
       .call(d3.axisRight(yPump)
       );
