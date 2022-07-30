@@ -87,7 +87,13 @@
    .attr("x", 250)
    .attr("y", -1525)
    .style("text-anchor", "middle")
-   .text("Gasoline Price USD/Gallon");
+      .text("Gasoline Price USD/Gallon");
+
+      d3.select("svg").append("text")
+   .attr("x", 800)
+   .attr("y", 550)
+   .style("text-anchor", "middle")
+   .text("Date");
       }
 
       
