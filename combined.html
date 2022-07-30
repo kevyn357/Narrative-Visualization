@@ -18,6 +18,7 @@
 
       var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
       var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
+      var yPump = d3.scaleLinear().domain([0, 5]).range([425,0]);
 
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
@@ -32,6 +33,11 @@
       d3.select("svg").append("g").attr("transform", "translate("+50+","+50+")")
       .attr("fill", "none")
       .call(d3.axisLeft(yCrude)
+      );
+
+      d3.select("svg").append("g").attr("transform", "translate("+1475+","+50+")")
+      .attr("fill", "none")
+      .call(d3.axisRight(yPump)
       );
 
       const xAxis = d3.axisBottom(x).ticks(24).tickFormat(d3.timeFormat("%b-%Y"));
