@@ -74,6 +74,13 @@
         .style("font-size", "16px") 
         .style("text-decoration", "underline")  
       .text("Average Crude Oil Price Vs Average Gasoline Price in USA");
+
+      d3.select("svg").append("text")
+      .attr("transform", "rotate(-90)")
+   .attr("x", -250)
+   .attr("y", 15)
+   .style("text-anchor", "middle")
+   .text("Crude Oil Price USD/Barrel");
       
       }
 
