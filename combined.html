@@ -23,7 +23,7 @@
 
       var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
       var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
-      var yPump = d3.scaleLinear().domain([0, 5]).range([425,0]);
+      var yPump = d3.scaleLinear().domain([0, 5.2]).range([425,0]);
 
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
@@ -66,6 +66,15 @@
       .attr("transform", "rotate(-70)")
       ;
 
+      //http://www.d3noob.org/2013/01/adding-title-to-your-d3js-graph.html
+      svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 20)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+      .text("Average Crude Oil Price Vs Average Gasoline Price in USA");
+      
       }
 
       
