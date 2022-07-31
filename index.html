@@ -47,6 +47,25 @@
       .attr("dy", "-.1em")
       .attr("transform", "rotate(-70)")
       ;
+
+
+      d3.select("svg").append("text")
+      .attr("transform", "rotate(-90)")
+   .attr("x", -250)
+   .attr("y", 15)
+   .style("text-anchor", "middle")
+      .text("Crude Oil Price USD/Barrel");
+
+      d3.select("svg").append("text")
+        .attr("x", 800)             
+        .attr("y", 20)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+      .text("Average Crude Oil Price in USA");
+
+
+      
       //http://www.d3noob.org/2013/01/how-to-rotate-text-labels-for-x-axis-of.html
       //https://stackoverflow.com/questions/67468191/how-to-convert-d3-time-scale-from-v3-to-v4
 
