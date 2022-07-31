@@ -47,6 +47,20 @@
       .attr("transform", "rotate(-70)")
       ;
       
+      d3.select("svg").append("text")
+      .attr("transform", "rotate(-90)")
+   .attr("x", -250)
+   .attr("y", 15)
+   .style("text-anchor", "middle")
+      .text("Gasoline Price USD/Gallon");
+
+      d3.select("svg").append("text")
+        .attr("x", 800)             
+        .attr("y", 20)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+      .text("Average Gasoline Price in USA");
       
       }
 
