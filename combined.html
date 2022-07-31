@@ -58,6 +58,38 @@
       .attr("stroke-width", 1)
       .attr("stroke", "red");
 
+      d3.select("svg").append("line")
+      .attr("x1", x(fmt3("4-Nov-2008")))
+      .attr("y1", 600)
+      .attr("x2", x(fmt3("4-Nov-2008")))
+      .attr("y2", 0)
+      .attr("stroke-width", 1)
+      .attr("stroke", "blue");
+
+      d3.select("svg").append("line")
+      .attr("x1", x(fmt3("6-Nov-2012")))
+      .attr("y1", 600)
+      .attr("x2", x(fmt3("6-Nov-2012")))
+      .attr("y2", 0)
+      .attr("stroke-width", 1)
+      .attr("stroke", "blue");
+
+      d3.select("svg").append("line")
+      .attr("x1", x(fmt3("8-Nov-2016")))
+      .attr("y1", 600)
+      .attr("x2", x(fmt3("8-Nov-2016")))
+      .attr("y2", 0)
+      .attr("stroke-width", 1)
+      .attr("stroke", "red");
+
+      d3.select("svg").append("line")
+      .attr("x1", x(fmt3("3-Nov-2020")))
+      .attr("y1", 600)
+      .attr("x2", x(fmt3("3-Nov-2020")))
+      .attr("y2", 0)
+      .attr("stroke-width", 1)
+      .attr("stroke", "blue");
+
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
       .data(dataCrude)
