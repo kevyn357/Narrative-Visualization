@@ -5,6 +5,21 @@
   <style> circle {fill: lightblue; stroke: black;}</style>
   <style> ellipse {fill: green; stroke: black;}</style>
   <!-- <body onload='init()'> -->
+
+  <style>
+    .chart rect {fill: steelblue;}
+    #tooltip
+    {
+      opacity:0;
+      position: absolute;
+      text-align: center;
+      width:60px; height:40px;
+      background: white;
+      border:0px;
+    }
+    </style>
+
+  
     <svg width=1920 height=550> </svg>
 
     <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/pump.html';"> Gas Prices </button>
@@ -220,7 +235,7 @@
       .call(d3.axisLeft(yCrude)
       );
 
-      d3.select("svg").append("g").attr("transform", "translate("+1500+","+50+")")
+      d3.select("svg").append("g").attr("transform", "translate("+1525+","+50+")")
       .attr("fill", "none")
       .call(d3.axisRight(yPump)
       );
@@ -310,7 +325,31 @@
         d3.select("svg")
           .append("g")
           .attr("class", "annotation-group")
-          .call(makeAnnotations)
+    .call(makeAnnotations)
+
+
+    var tooltip = d3.select("#tooltip");
+    
+    d3.select(".chart")
+    .attr("width", width)
+    .attr("height", height)
+    .selectAll("rect")
+    .data(data)
+    .enter().append("rect")
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("x", function(d,i){return x(i);})
+    .attr("y", function(d) {return yPump(d);})
+    .on("mouseover", function(d,i)
+    {
+      tooltop.style("opacity", 1)
+    .style("left", (d3.event.pageX)+"px")
+      .style("top", (d3.event.pageY)+"px")
+      .html("mew");
+    })
+
+
+    
     </script>
 
     Use the buttons to select the scene.
