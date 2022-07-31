@@ -10,85 +10,114 @@
     <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/pump.html';"> Gas Prices </button>
   <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/index.html';"> Crude Oil Prices </button>
   <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/combined.html';"> Gas Prices and Crude Oil Prices Together </button>
-    mew mew mew
+
+  <label for="pres">Presidential Elections:</label> 
+  <input type="checkbox" id="pres" checked="checked" onclick="makePres()">
+
     <script>
       async function init()
       {
-      const dataCrude = await d3.csv('crude.csv');
-      console.log(dataCrude);
-      const dataPump = await d3.csv('usPump.csv');
-      console.log(dataPump);
+          const dataCrude = await d3.csv('crude.csv');
+          console.log(dataCrude);
+          const dataPump = await d3.csv('usPump.csv');
+          console.log(dataPump);
 
-      //var xTool = d3.scaleLinear().domain().range();
+          //var xTool = d3.scaleLinear().domain().range();
       
-      var fmt1 = d3.timeParse("%b-%Y");
-      console.log(fmt1("Jan-2000"));
+          var fmt1 = d3.timeParse("%b-%Y");
+          console.log(fmt1("Jan-2000"));
 
-      var fmt2 = d3.timeParse("%e-%b-%y");
-      var fmt3 = d3.timeParse("%e-%b-%Y");
-      console.log(fmt3("24-Feb-2022"));
+          var fmt2 = d3.timeParse("%e-%b-%y");
+          var fmt3 = d3.timeParse("%e-%b-%Y");
+          console.log(fmt3("24-Feb-2022"));
 
-      var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
-      var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
-      var yPump = d3.scaleLinear().domain([0, 5.2]).range([425,0]);
+          var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
+          var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
+          var yPump = d3.scaleLinear().domain([0, 5.2]).range([425,0]);
 
-      //https://stackoverflow.com/questions/29910194/d3-js-vertical-line-on-a-time-axis
-      //https://stackoverflow.com/questions/34455345/d3-js-appendline-doesnt-show-up
-      d3.select("svg").append("line")
-      .attr("x1", x(fmt3("24-Feb-2022")))
-      .attr("y1", 600)
-      .attr("x2", x(fmt3("24-Feb-2022")))
-      .attr("y2", 0)
-      .attr("stroke-width", 1)
-      .attr("stroke", "black");
+          //https://stackoverflow.com/questions/29910194/d3-js-vertical-line-on-a-time-axis
+          //https://stackoverflow.com/questions/34455345/d3-js-appendline-doesnt-show-up
 
-      d3.select("svg").append("line")
-      .attr("x1", x(fmt3("7-Nov-2000")))
-      .attr("y1", 600)
-      .attr("x2", x(fmt3("7-Nov-2000")))
-      .attr("y2", 0)
-      .attr("stroke-width", 1)
-      .attr("stroke", "red");
+          d3.select("svg").append("line")
+                  .attr("x1", x(fmt3("24-Feb-2022")))
+                  .attr("y1", 600)
+                  .attr("x2", x(fmt3("24-Feb-2022")))
+                  .attr("y2", 0)
+                  .attr("stroke-width", 1)
+                  .attr("id", "putty")
+                  .attr("stroke", "black");
+      
+          function makePres()
+          {
+              var presCheck = document.getElementById("pres");
+              if(pres.checked)
+              {
+                  
 
-      d3.select("svg").append("line")
-      .attr("x1", x(fmt3("2-Nov-2004")))
-      .attr("y1", 600)
-      .attr("x2", x(fmt3("2-Nov-2004")))
-      .attr("y2", 0)
-      .attr("stroke-width", 1)
-      .attr("stroke", "red");
+                  d3.select("svg").append("line")
+                  .attr("x1", x(fmt3("7-Nov-2000")))
+                  .attr("y1", 600)
+                  .attr("x2", x(fmt3("7-Nov-2000")))
+                  .attr("y2", 0)
+                  .attr("stroke-width", 1)
+                  .attr("id", "gw1")
+                  .attr("stroke", "red");
 
-      d3.select("svg").append("line")
-      .attr("x1", x(fmt3("4-Nov-2008")))
-      .attr("y1", 600)
-      .attr("x2", x(fmt3("4-Nov-2008")))
-      .attr("y2", 0)
-      .attr("stroke-width", 1)
-      .attr("stroke", "blue");
+                  d3.select("svg").append("line")
+                  .attr("x1", x(fmt3("2-Nov-2004")))
+                  .attr("y1", 600)
+                  .attr("x2", x(fmt3("2-Nov-2004")))
+                  .attr("y2", 0)
+                  .attr("stroke-width", 1)
+                  .attr("id", "gw2")
+                  .attr("stroke", "red");
 
-      d3.select("svg").append("line")
-      .attr("x1", x(fmt3("6-Nov-2012")))
-      .attr("y1", 600)
-      .attr("x2", x(fmt3("6-Nov-2012")))
-      .attr("y2", 0)
-      .attr("stroke-width", 1)
-      .attr("stroke", "blue");
+                   d3.select("svg").append("line")
+                   .attr("x1", x(fmt3("4-Nov-2008")))
+                   .attr("y1", 600)
+                   .attr("x2", x(fmt3("4-Nov-2008")))
+                   .attr("y2", 0)
+                   .attr("stroke-width", 1)
+                   .attr("id", "bo1")
+                   .attr("stroke", "blue");
 
-      d3.select("svg").append("line")
-      .attr("x1", x(fmt3("8-Nov-2016")))
-      .attr("y1", 600)
-      .attr("x2", x(fmt3("8-Nov-2016")))
-      .attr("y2", 0)
-      .attr("stroke-width", 1)
-      .attr("stroke", "red");
+                   d3.select("svg").append("line")
+                   .attr("x1", x(fmt3("6-Nov-2012")))
+                   .attr("y1", 600)
+                   .attr("x2", x(fmt3("6-Nov-2012")))
+                   .attr("y2", 0)
+                   .attr("stroke-width", 1)
+                   .attr("id", "bo2")
+                   .attr("stroke", "blue");
 
-      d3.select("svg").append("line")
-      .attr("x1", x(fmt3("3-Nov-2020")))
-      .attr("y1", 600)
-      .attr("x2", x(fmt3("3-Nov-2020")))
-      .attr("y2", 0)
-      .attr("stroke-width", 1)
-      .attr("stroke", "blue");
+                   d3.select("svg").append("line")
+                   .attr("x1", x(fmt3("8-Nov-2016")))
+                   .attr("y1", 600)
+                   .attr("x2", x(fmt3("8-Nov-2016")))
+                   .attr("y2", 0)
+                   .attr("stroke-width", 1)
+                   .attr("id", "djt")
+                   .attr("stroke", "red");
+
+                   d3.select("svg").append("line")
+                   .attr("x1", x(fmt3("3-Nov-2020")))
+                   .attr("y1", 600)
+                   .attr("x2", x(fmt3("3-Nov-2020")))
+                   .attr("y2", 0)
+                   .attr("stroke-width", 1)
+                   .attr("id", "jb")
+                   .attr("stroke", "blue");
+              }
+              else
+              {
+                  d3.select("#gw1").remove();
+                  d3.select("#gw2").remove();
+                  d3.select("#bo1").remove();
+                  d3.select("#bo2").remove();
+                  d3.select("#djt").remove();
+                  d3.select("#jb").remove();
+              }
+          }
 
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
