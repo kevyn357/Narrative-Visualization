@@ -14,6 +14,9 @@
   <label for="pres">Presidential Elections:</label> 
   <input type="checkbox" id="pres" checked="checked" onclick="makePres()">
 
+  <label for="pres">Midterm Elections:</label> 
+  <input type="checkbox" id="midterm" onclick="makeMidterm()">
+
   <script>
     var fmt1 = d3.timeParse("%b-%Y");
           console.log(fmt1("Jan-2000"));
@@ -95,6 +98,68 @@
                   d3.select("#bo2").remove();
                   d3.select("#djt").remove();
                   d3.select("#jb").remove();
+              }
+    }
+    function makeMidterm()
+          {
+              var midCheck = document.getElementById("midterm");
+              if(midterm.checked)
+              {
+                  
+
+                  d3.select("svg").append("line")
+                  .attr("x1", x(fmt3("5-Nov-2002")))
+                  .attr("y1", 600)
+                  .attr("x2", x(fmt3("5-Nov-2002")))
+                  .attr("y2", 0)
+                  .attr("stroke-width", 1)
+                  .attr("id", "m02")
+                  .attr("stroke", "red");
+
+                  d3.select("svg").append("line")
+                  .attr("x1", x(fmt3("7-Nov-2006")))
+                  .attr("y1", 600)
+                  .attr("x2", x(fmt3("7-Nov-2006")))
+                  .attr("y2", 0)
+                  .attr("stroke-width", 1)
+                  .attr("id", "m06")
+                  .attr("stroke", "blue");
+
+                   d3.select("svg").append("line")
+                   .attr("x1", x(fmt3("2-Nov-2010")))
+                   .attr("y1", 600)
+                   .attr("x2", x(fmt3("2-Nov-2010")))
+                   .attr("y2", 0)
+                   .attr("stroke-width", 1)
+                   .attr("id", "m10")
+                   .attr("stroke", "purple");
+
+                   d3.select("svg").append("line")
+                   .attr("x1", x(fmt3("4-Nov-2014")))
+                   .attr("y1", 600)
+                   .attr("x2", x(fmt3("4-Nov-2014")))
+                   .attr("y2", 0)
+                   .attr("stroke-width", 1)
+                   .attr("id", "m14")
+                   .attr("stroke", "red");
+
+                   d3.select("svg").append("line")
+                   .attr("x1", x(fmt3("6-Nov-2018")))
+                   .attr("y1", 600)
+                   .attr("x2", x(fmt3("6-Nov-2018")))
+                   .attr("y2", 0)
+                   .attr("stroke-width", 1)
+                   .attr("id", "m18")
+                   .attr("stroke", "purple");
+
+              }
+              else
+              {
+                  d3.select("#m02").remove();
+                  d3.select("#m06").remove();
+                  d3.select("#m10").remove();
+                  d3.select("#m14").remove();
+                  d3.select("#m18").remove();
               }
           }
       async function init()
