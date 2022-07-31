@@ -1,6 +1,7 @@
 
 <html>
   <script src='https://d3js.org/d3.v5.min.js'></script>
+  <script src='https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js'></script>
   <style> circle {fill: lightblue; stroke: black;}</style>
   <style> ellipse {fill: green; stroke: black;}</style>
   <!-- <body onload='init()'> -->
@@ -18,7 +19,7 @@
       const dataPump = await d3.csv('usPump.csv');
       console.log(dataPump);
 
-      //const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      //var xTool = d3.scaleLinear().domain().range();
       
       var fmt1 = d3.timeParse("%b-%Y");
       console.log(fmt1("Jan-2000"));
@@ -100,7 +101,36 @@
    .text("Date");
       }
 
+      //https://bl.ocks.org/susielu/a464c24d8b42f0c4d9fafe7b48e9e60a
+      const annotations = [
+        {
+          
+          //below in makeAnnotations has type set to d3.annotationLabel
+          //you can add this type value below to override that default
+          type: d3.annotationCalloutCircle,
+          note: {
+            label: "A different annotation type",
+            title: "d3.annotationCalloutCircle",
+            wrap: 190
+          },
+          //settings for the subject, in this case the circle radius
+          subject: {
+            radius: 50
+          },
+          x: 620,
+          y: 150,
+          dy: 100,
+          dx: 100
+        }].map(function(d){ d.color = "#E8336D"; return d})
       
+      const makeAnnotations = d3.annotation()
+          .type(d3.annotationLabel)
+          .annotations(annotations)
+
+        d3.select("svg")
+          .append("g")
+          .attr("class", "annotation-group")
+          .call(makeAnnotations)
     </script>
 
     Use the buttons to select the scene.
