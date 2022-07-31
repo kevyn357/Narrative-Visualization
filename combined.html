@@ -102,11 +102,14 @@
       }
 
       //https://stackoverflow.com/questions/29910194/d3-js-vertical-line-on-a-time-axis
+      //https://stackoverflow.com/questions/34455345/d3-js-appendline-doesnt-show-up
       d3.select("svg").append("line")
       .attr("x1", x(new Date(2022,24,02)))
       .attr("y1", 600)
       .attr("x2", x(new Date(2022,24,02)))
       .attr("y2", 0)
+      .attr("stroke-width", 1)
+      .attr("stroke", "black");
       
       //https://bl.ocks.org/susielu/a464c24d8b42f0c4d9fafe7b48e9e60a
       const annotations = [
