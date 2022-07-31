@@ -248,7 +248,27 @@
       .attr("dx", "-.5em")
       .attr("dy", "-.1em")
       .attr("transform", "rotate(-70)")
-      ;
+    ;
+
+    var tooltip = d3.select("#tooltip");
+    
+    d3.select(".chart")
+    .attr("width", 100)
+    .attr("height", 100)
+    .selectAll("rect")
+    .data(dataPump)
+    .enter().append("rect")
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("x", function(d,i){return x(i);})
+    .attr("y", function(d) {return yPump(d);})
+    .on("mouseover", function(d,i)
+    {
+      tooltop.style("opacity", 1)
+    .style("left", (d3.event.pageX)+"px")
+      .style("top", (d3.event.pageY)+"px")
+      .html("mew");
+    })
 
       //http://www.d3noob.org/2013/01/adding-title-to-your-d3js-graph.html
       d3.select("svg").append("text")
@@ -328,25 +348,7 @@
     .call(makeAnnotations)
 
 
-    var tooltip = d3.select("#tooltip");
     
-    d3.select(".chart")
-    .attr("width", 100)
-    .attr("height", 100)
-    .selectAll("rect")
-    .data(dataPump)
-    .enter().append("rect")
-    .attr("width", 20)
-    .attr("height", 20)
-    .attr("x", function(d,i){return x(i);})
-    .attr("y", function(d) {return yPump(d);})
-    .on("mouseover", function(d,i)
-    {
-      tooltop.style("opacity", 1)
-    .style("left", (d3.event.pageX)+"px")
-      .style("top", (d3.event.pageY)+"px")
-      .html("mew");
-    })
 
 
     
