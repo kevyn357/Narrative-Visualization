@@ -15,6 +15,17 @@
   <input type="checkbox" id="pres" checked="checked" onclick="makePres()">
 
   <script>
+    var fmt1 = d3.timeParse("%b-%Y");
+          console.log(fmt1("Jan-2000"));
+
+          var fmt2 = d3.timeParse("%e-%b-%y");
+          var fmt3 = d3.timeParse("%e-%b-%Y");
+          console.log(fmt3("24-Feb-2022"));
+
+          var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
+          var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
+    var yPump = d3.scaleLinear().domain([0, 5.2]).range([425,0]);
+    
     function makePres()
           {
               var presCheck = document.getElementById("pres");
@@ -95,16 +106,7 @@
 
           //var xTool = d3.scaleLinear().domain().range();
       
-          var fmt1 = d3.timeParse("%b-%Y");
-          console.log(fmt1("Jan-2000"));
-
-          var fmt2 = d3.timeParse("%e-%b-%y");
-          var fmt3 = d3.timeParse("%e-%b-%Y");
-          console.log(fmt3("24-Feb-2022"));
-
-          var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
-          var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
-          var yPump = d3.scaleLinear().domain([0, 5.2]).range([425,0]);
+          
 
           //https://stackoverflow.com/questions/29910194/d3-js-vertical-line-on-a-time-axis
           //https://stackoverflow.com/questions/34455345/d3-js-appendline-doesnt-show-up
