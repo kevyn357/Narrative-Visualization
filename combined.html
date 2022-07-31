@@ -118,7 +118,21 @@
       //https://bl.ocks.org/susielu/a464c24d8b42f0c4d9fafe7b48e9e60a
       const annotations = [
         {
-          
+          type: d3.annotationCalloutCircle,
+          note: {
+            label: "Russia's full scale invasion of Ukraine caused disruptions to the global economy.",
+            title: "Russia invades Ukraine (again)",
+            wrap: 190
+          },
+          //settings for the subject, in this case the circle radius
+          subject: {
+            radius: 50
+          },
+          x: 1390,
+          y: 150,
+          dy: 100,
+          dx: 100
+          },{
           //below in makeAnnotations has type set to d3.annotationLabel
           //you can add this type value below to override that default
           type: d3.annotationCalloutCircle,
