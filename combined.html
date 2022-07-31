@@ -61,7 +61,7 @@
       .call(d3.axisRight(yPump)
       );
 
-      const xAxis = d3.axisBottom(x).ticks(24).tickFormat(d3.timeFormat("%b-%Y"));
+      const xAxis = d3.axisBottom(x).ticks(48).tickFormat(d3.timeFormat("%b-%Y"));
       d3.select("svg").append("g").attr("transform", "translate("+50+","+475+")")
       .call(xAxis)
       .selectAll("text") 
@@ -119,8 +119,8 @@
           },
           x: 600,
           y: 175,
-          dy: 75,
-          dx: 75
+          dy: 150,
+          dx: 150
         }].map(function(d){ d.color = "#E8336D"; return d})
       
       const makeAnnotations = d3.annotation()
