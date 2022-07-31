@@ -113,14 +113,21 @@
 
           d3.select("svg").append("line")
                   .attr("x1", x(fmt3("24-Feb-2022")))
-                  .attr("y1", 600)
+                  .attr("y1", 550)
                   .attr("x2", x(fmt3("24-Feb-2022")))
-                  .attr("y2", 0)
+                  .attr("y2", 100)
                   .attr("stroke-width", 1)
                   .attr("id", "putty")
                   .attr("stroke", "black");
       
-          
+          d3.select("svg").append("line")
+                  .attr("x1", x(fmt3("11-Sep-2001")))
+                  .attr("y1", 550)
+                  .attr("x2", x(fmt3("24-Sep-2001")))
+                  .attr("y2", 100)
+                  .attr("stroke-width", 1)
+                  .attr("id", "911")
+                  .attr("stroke", "black");
 
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
