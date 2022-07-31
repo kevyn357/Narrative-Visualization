@@ -42,6 +42,22 @@
       .attr("stroke-width", 1)
       .attr("stroke", "black");
 
+      d3.select("svg").append("line")
+      .attr("x1", x(fmt3("7-Nov-2000")))
+      .attr("y1", 600)
+      .attr("x2", x(fmt3("7-Nov-2000")))
+      .attr("y2", 0)
+      .attr("stroke-width", 1)
+      .attr("stroke", "red");
+
+      d3.select("svg").append("line")
+      .attr("x1", x(fmt3("2-Nov-2004")))
+      .attr("y1", 600)
+      .attr("x2", x(fmt3("2-Nov-2004")))
+      .attr("y2", 0)
+      .attr("stroke-width", 1)
+      .attr("stroke", "red");
+
       d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
       .data(dataCrude)
@@ -101,7 +117,7 @@
 
       d3.select("svg").append("text")
       .attr("transform", "rotate(90)")
-   .attr("x", 250)
+   .attr("x", 275)
    .attr("y", -1525)
    .style("text-anchor", "middle")
       .text("Gasoline Price USD/Gallon");
@@ -129,7 +145,7 @@
             radius: 50
           },
           x: 1390,
-          y: 150,
+          y: 200,
           dy: 180,
           dx: 180
           },{
