@@ -64,6 +64,11 @@
         .style("text-decoration", "underline")  
       .text("Average Crude Oil Price in USA");
 
+      d3.select("svg").append("text")
+   .attr("x", 800)
+   .attr("y", 550)
+   .style("text-anchor", "middle")
+   .text("Date");
 
       
       //http://www.d3noob.org/2013/01/how-to-rotate-text-labels-for-x-axis-of.html

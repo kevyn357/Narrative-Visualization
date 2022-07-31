@@ -61,6 +61,12 @@
         .style("font-size", "16px") 
         .style("text-decoration", "underline")  
       .text("Average Gasoline Price in USA");
+
+      d3.select("svg").append("text")
+   .attr("x", 800)
+   .attr("y", 550)
+   .style("text-anchor", "middle")
+   .text("Date");
       
       }
 
