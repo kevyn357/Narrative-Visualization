@@ -33,9 +33,9 @@
       //https://stackoverflow.com/questions/29910194/d3-js-vertical-line-on-a-time-axis
       //https://stackoverflow.com/questions/34455345/d3-js-appendline-doesnt-show-up
       d3.select("svg").append("line")
-      .attr("x1", x(new Date(2022,24,02)))
+      .attr("x1", x(fmt2("24-02-22")))
       .attr("y1", 600)
-      .attr("x2", x(new Date(2022,24,02)))
+      .attr("x2", x(fmt2("24-02-22")))
       .attr("y2", 0)
       .attr("stroke-width", 1)
       .attr("stroke", "black");
