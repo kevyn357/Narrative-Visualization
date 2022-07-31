@@ -6,6 +6,7 @@
   <style> ellipse {fill: green; stroke: black;}</style>
   <!-- <body onload='init()'> -->
 
+  <!-- https://bl.ocks.org/d3noob/a22c42db65eb00d4e369 -->
   <style>
      div.tooltip
     {
@@ -227,7 +228,7 @@
           div.transition().duration(200).style("opacity",1)
           div.style("left", (d3.event.pageX)+"px")
           .style("top", (d3.event.pageY)+"px")
-          .html("mew");
+          .html(fmt1(d.Date));
       }).on("mouseout", function(d) {div.transition().duration(500).style("opacity",0)})
       ;
 
