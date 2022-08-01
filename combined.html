@@ -28,7 +28,7 @@
   <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/combined.html';"> Scene 3: World Events with Gas and Crude Prices</button>
 <br>
   <label for="pres">Presidential Elections:</label> 
-  <input type="checkbox" id="pres" checked="checked" onclick="makePres()">
+  <input type="checkbox" id="pres" onclick="makePres()">
 
   <label for="pres">Midterm Elections:</label> 
   <input type="checkbox" id="midterm" onclick="makeMidterm()">
@@ -318,7 +318,23 @@
       
       //https://bl.ocks.org/susielu/a464c24d8b42f0c4d9fafe7b48e9e60a
       const annotations = [
-        {
+    {
+          type: d3.annotationCalloutCircle,
+          note: {
+            label: "The first known cases of Covid 19 happen in December 2019, kicking off a global pandemic",
+            title: "Covid 19",
+            wrap: 190
+          },
+          //settings for the subject, in this case the circle radius
+          subject: {
+            radius: 50
+          },
+          x: 1350,
+          y: 250,
+          dy: 180,
+          dx: 180
+          },{
+    
           type: d3.annotationCalloutCircle,
           note: {
             label: "Russia's full scale invasion of Ukraine caused disruptions to the global economy.",
