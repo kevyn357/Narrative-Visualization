@@ -55,13 +55,27 @@
                   //https://bl.ocks.org/susielu/a464c24d8b42f0c4d9fafe7b48e9e60a
       const annotations = [
         {
-          
-          //below in makeAnnotations has type set to d3.annotationLabel
-          //you can add this type value below to override that default
           type: d3.annotationCalloutCircle,
           note: {
             label: "Oil prices go negative for the first time in history.",
             title: "Oil Prices Negative",
+            wrap: 190
+          },
+          //settings for the subject, in this case the circle radius
+          subject: {
+            radius: 50
+          },
+          x: 1350,
+          y: 200,
+          dy: 180,
+          dx: 180
+          },{
+          //below in makeAnnotations has type set to d3.annotationLabel
+          //you can add this type value below to override that default
+          type: d3.annotationCalloutCircle,
+          note: {
+            label: "The highest crude oil price (adjusted for inflation) was in June 2008.",
+            title: "Record Crude Oil Price",
             wrap: 190
           },
           //settings for the subject, in this case the circle radius
@@ -91,7 +105,8 @@
                   d3.select(".annotations").remove();
                   
               }
-          }
+    }
+    makeAnnotation();
       async function init()
       {
           const dataCrude = await d3.csv('crude.csv');
