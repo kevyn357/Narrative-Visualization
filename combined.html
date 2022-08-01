@@ -230,7 +230,7 @@
           div.transition().duration(200).style("opacity",1)
           div.style("left", (d3.event.pageX)+"px")
           .style("top", (d3.event.pageY)+"px")
-          .html(formatTimeC(d.Date));
+          .html(formatTimeC(fmt1(d.Date)));
       }).on("mouseout", function(d) {div.transition().duration(500).style("opacity",0)})
       ;
 
