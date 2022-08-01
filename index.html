@@ -27,11 +27,9 @@
   <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/pump.html';"> Scene 2: US domestic events with Gas and Crude Prices</button>
   <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/combined.html';"> Scene 3: World Events with Gas and Crude Prices</button>
 <br>
-  <label for="pres">Show/Hide US Retail Gas Prices:</label> 
-  <input type="checkbox" id="gas" checked="checked" onclick="makeGas()">
 
-  <label for="crude">Show/Hide US Crude Oil Prices:</label> 
-  <input type="checkbox" id="crude" checked="checked" onclick="makeCrude()">
+  <label for="crude">Show/Hide Annotation:</label> 
+  <input type="checkbox" id="anno" checked="checked" onclick="makeAnnotation()">
 <br>
   <script>
     var fmt1 = d3.timeParse("%b-%Y");
@@ -49,66 +47,49 @@
 
     
     
-    function makeCrude()
+    function makeAnnotation()
           {
-              var crudeCheck = document.getElementById("crude");
-              if(crude.checked)
+              var annoCheck = document.getElementById("anno");
+              if(anno.checked)
               {
+                  //https://bl.ocks.org/susielu/a464c24d8b42f0c4d9fafe7b48e9e60a
+      const annotations = [
+        {
+          
+          //below in makeAnnotations has type set to d3.annotationLabel
+          //you can add this type value below to override that default
+          type: d3.annotationCalloutCircle,
+          note: {
+            label: "Oil prices go negative for the first time in history.",
+            title: "Oil Prices Negative",
+            wrap: 190
+          },
+          //settings for the subject, in this case the circle radius
+          subject: {
+            radius: 40
+          },
+          x: 600,
+          y: 120,
+          dy: 150,
+          dx: 150
+        }].map(function(d){ d.color = "#E8336D"; return d})
+      
+      const makeAnnotations = d3.annotation()
+          .type(d3.annotationLabel)
+          .annotations(annotations)
+
+        d3.select("svg")
+          .append("g")
+          .attr("class", "annotation-group")
+    .call(makeAnnotations)
+
                   
-
-                  d3.select("svg").append("line")
-                  .attr("x1", x(fmt3("5-Nov-2002")))
-                  .attr("y1", 600)
-                  .attr("x2", x(fmt3("5-Nov-2002")))
-                  .attr("y2", 0)
-                  .attr("stroke-width", 1)
-                  .attr("id", "m02")
-                  .attr("stroke", "red");
-
-                  d3.select("svg").append("line")
-                  .attr("x1", x(fmt3("7-Nov-2006")))
-                  .attr("y1", 600)
-                  .attr("x2", x(fmt3("7-Nov-2006")))
-                  .attr("y2", 0)
-                  .attr("stroke-width", 1)
-                  .attr("id", "m06")
-                  .attr("stroke", "blue");
-
-                   d3.select("svg").append("line")
-                   .attr("x1", x(fmt3("2-Nov-2010")))
-                   .attr("y1", 600)
-                   .attr("x2", x(fmt3("2-Nov-2010")))
-                   .attr("y2", 0)
-                   .attr("stroke-width", 1)
-                   .attr("id", "m10")
-                   .attr("stroke", "purple");
-
-                   d3.select("svg").append("line")
-                   .attr("x1", x(fmt3("4-Nov-2014")))
-                   .attr("y1", 600)
-                   .attr("x2", x(fmt3("4-Nov-2014")))
-                   .attr("y2", 0)
-                   .attr("stroke-width", 1)
-                   .attr("id", "m14")
-                   .attr("stroke", "red");
-
-                   d3.select("svg").append("line")
-                   .attr("x1", x(fmt3("6-Nov-2018")))
-                   .attr("y1", 600)
-                   .attr("x2", x(fmt3("6-Nov-2018")))
-                   .attr("y2", 0)
-                   .attr("stroke-width", 1)
-                   .attr("id", "m18")
-                   .attr("stroke", "purple");
 
               }
               else
               {
-                  d3.select("#m02").remove();
-                  d3.select("#m06").remove();
-                  d3.select("#m10").remove();
-                  d3.select("#m14").remove();
-                  d3.select("#m18").remove();
+                  d3.select(".annotations").remove();
+                  
               }
           }
       async function init()
@@ -123,9 +104,7 @@
     .attr("class", "tooltip")
     .style("opacity",0);
 
-    function makeGas()
-          {
-              var gasCheck = document.getElementById("gas");
+    var gasCheck = document.getElementById("gas");
               if(gas.checked)
               {
                   
@@ -145,15 +124,7 @@
           .html(formatTimeC(fmt1(d.Date)) + "<br/>" + "Crude Price: " + d.USCrude);
       }).on("mouseout", function(d) {div.transition().duration(500).style("opacity",0)})
       ;
-                  
-              }
-              else
-              {
-                  d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
-      .selectAll("circle").remove();
-              }
-    }
-    
+  
       
 
        d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
@@ -228,36 +199,7 @@
 
       
       
-      //https://bl.ocks.org/susielu/a464c24d8b42f0c4d9fafe7b48e9e60a
-      const annotations = [
-        {
-          
-          //below in makeAnnotations has type set to d3.annotationLabel
-          //you can add this type value below to override that default
-          type: d3.annotationCalloutCircle,
-          note: {
-            label: "Subprime lending during the 21st century caused a burst of the real estate bubble, causing a global recession.",
-            title: "Financial Crisis of 2007-2008",
-            wrap: 190
-          },
-          //settings for the subject, in this case the circle radius
-          subject: {
-            radius: 40
-          },
-          x: 600,
-          y: 120,
-          dy: 150,
-          dx: 150
-        }].map(function(d){ d.color = "#E8336D"; return d})
       
-      const makeAnnotations = d3.annotation()
-          .type(d3.annotationLabel)
-          .annotations(annotations)
-
-        d3.select("svg")
-          .append("g")
-          .attr("class", "annotation-group")
-    .call(makeAnnotations)
 
 
     
