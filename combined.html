@@ -39,8 +39,8 @@
 
           var fmt2 = d3.timeParse("%e-%b-%y");
     var fmt3 = d3.timeParse("%e-%b-%Y");
-    //var formatTimeC = d3.time.format("%b-%Y");
-    //var formatTimeP = d3.time.format("%e-%b-%y");
+    var formatTimeC = d3.timeFormat("%b-%Y");
+    var formatTimeP = d3.timeFormat("%e-%b-%y");
           console.log(fmt3("24-Feb-2022"));
 
           var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1450]);
