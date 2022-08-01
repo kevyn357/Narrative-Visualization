@@ -119,7 +119,7 @@
                   d3.select("#jb").remove();
               }
     }
-    makePres();
+  //  makePres();
     function makeMidterm()
           {
               var midCheck = document.getElementById("midterm");
@@ -209,6 +209,15 @@
                   .attr("x1", x(fmt3("11-Sep-2001")))
                   .attr("y1", 450)
                   .attr("x2", x(fmt3("11-Sep-2001")))
+                  .attr("y2", 25)
+                  .attr("stroke-width", 1)
+                  .attr("id", "911")
+    .attr("stroke", "black");
+
+    d3.select("svg").append("line").attr("transform", "translate("+50+","+50+")")
+                  .attr("x1", x(fmt3("31-Dec-2019")))
+                  .attr("y1", 450)
+                  .attr("x2", x(fmt3("31-Dec-2019")))
                   .attr("y2", 25)
                   .attr("stroke-width", 1)
                   .attr("id", "911")
