@@ -12,7 +12,7 @@
     {
       position: absolute;
       text-align: center;
-      width:120px; height:40px;
+      width:120px; height:60px;
       background: lightsteelblue;
      border:0px;
      border-radius: 8px;
@@ -198,7 +198,7 @@
 
           d3.select("svg").append("line").attr("transform", "translate("+50+","+50+")")
                   .attr("x1", x(fmt3("24-Feb-2022")))
-                  .attr("y1", 500)
+                  .attr("y1", 450)
                   .attr("x2", x(fmt3("24-Feb-2022")))
                   .attr("y2", 100)
                   .attr("stroke-width", 1)
@@ -207,7 +207,7 @@
       
           d3.select("svg").append("line").attr("transform", "translate("+50+","+50+")")
                   .attr("x1", x(fmt3("11-Sep-2001")))
-                  .attr("y1", 500)
+                  .attr("y1", 450)
                   .attr("x2", x(fmt3("11-Sep-2001")))
                   .attr("y2", 100)
                   .attr("stroke-width", 1)
@@ -228,7 +228,6 @@
       .attr("r", 2)
       .on("mouseover", function(d,i)
       {
-    //tooltip.style("opacity", 1)
           div.transition().duration(200).style("opacity",1)
           div.style("left", (d3.event.pageX)+"px")
           .style("top", (d3.event.pageY)+"px")
@@ -244,7 +243,14 @@
       .attr("cx", function(d,i){return x(fmt2(d.Date));})
       .attr("cy", function(d,i){return yPump(d.USRetail);})
       .attr("rx", 2)
-      .attr("ry", 2)
+    .attr("ry", 2)
+    .on("mouseover", function(d,i)
+      {
+          div.transition().duration(200).style("opacity",1)
+          div.style("left", (d3.event.pageX)+"px")
+          .style("top", (d3.event.pageY)+"px")
+          .html(formatTimeP(fmt1(d.Date)) + "<br/>" + "Gasoline Price: " + d.USRetail);
+      }).on("mouseout", function(d) {div.transition().duration(500).style("opacity",0)})
       ;
 
       d3.select("svg").append("g").attr("transform", "translate("+50+","+50+")")
@@ -252,7 +258,7 @@
       .call(d3.axisLeft(yCrude)
       );
 
-      d3.select("svg").append("g").attr("transform", "translate("+1525+","+50+")")
+      d3.select("svg").append("g").attr("transform", "translate("+1550+","+50+")")
       .attr("fill", "none")
       .call(d3.axisRight(yPump)
       );
@@ -314,7 +320,7 @@
           subject: {
             radius: 50
           },
-          x: 1390,
+          x: 1450,
           y: 200,
           dy: 180,
           dx: 180
@@ -331,7 +337,7 @@
           subject: {
             radius: 40
           },
-          x: 575,
+          x: 600,
           y: 120,
           dy: 150,
           dx: 150
