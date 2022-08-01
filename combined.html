@@ -43,7 +43,7 @@
     var formatTimeP = d3.timeFormat("%e-%b-%y");
           console.log(fmt3("24-Feb-2022"));
 
-          var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,07,31)]).range([0,1500]);
+          var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1500]);
           var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
     var yPump = d3.scaleLinear().domain([0, 5.2]).range([425,0]);
     
@@ -195,18 +195,18 @@
           //https://stackoverflow.com/questions/34455345/d3-js-appendline-doesnt-show-up
 
           d3.select("svg").append("line")
-                  .attr("x1", x(fmt3("24-Feb-2022")))
-                  .attr("y1", 550)
-                  .attr("x2", x(fmt3("24-Feb-2022")))
+                  .attr("x1", x(fmt3("24-Feb-2022")+50))
+                  .attr("y1", 500)
+                  .attr("x2", x(fmt3("24-Feb-2022")+50))
                   .attr("y2", 100)
                   .attr("stroke-width", 1)
                   .attr("id", "putty")
                   .attr("stroke", "black");
       
           d3.select("svg").append("line")
-                  .attr("x1", x(fmt3("11-Sep-2001")))
-                  .attr("y1", 550)
-                  .attr("x2", x(fmt3("24-Sep-2001")))
+                  .attr("x1", x(fmt3("11-Sep-2001")+50))
+                  .attr("y1", 500)
+                  .attr("x2", x(fmt3("11-Sep-2001")+50))
                   .attr("y2", 100)
                   .attr("stroke-width", 1)
                   .attr("id", "911")
