@@ -23,15 +23,15 @@
   
     <svg width=1920 height=550> </svg>
 
-    <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/pump.html';"> Scene 1: Gas Prices VS Crude Prices </button>
-  <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/index.html';"> Scene 2: US domestic events with Gas and Crude Prices</button>
+    <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/index.html';"> Scene 1: Gas Prices VS Crude Prices </button>
+  <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/pump.html';"> Scene 2: US domestic events with Gas and Crude Prices</button>
   <button type="button" onclick="window.location.href='https://kevyn357.github.io/Narrative-Visualization/combined.html';"> Scene 3: World Events with Gas and Crude Prices</button>
 <br>
   <label for="pres">Show/Hide US Retail Gas Prices:</label> 
   <input type="checkbox" id="gas" checked="checked" onclick="makeGas()">
 
   <label for="crude">Show/Hide US Crude Oil Prices:</label> 
-  <input type="checkbox" id="gas" checked="checked" onclick="makeCrude()">
+  <input type="checkbox" id="crude" checked="checked" onclick="makeCrude()">
 <br>
   <script>
     var fmt1 = d3.timeParse("%b-%Y");
@@ -48,20 +48,7 @@
     var yPump = d3.scaleLinear().domain([0, 5.2]).range([425,0]);
 
     
-    function makeGas()
-          {
-              var gasCheck = document.getElementById("gas");
-              if(gas.checked)
-              {
-                  
-
-                  
-              }
-              else
-              {
-                  
-              }
-    }
+    
     function makeCrude()
           {
               var crudeCheck = document.getElementById("crude");
@@ -136,7 +123,13 @@
     .attr("class", "tooltip")
     .style("opacity",0);
 
-      d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
+    function makeGas()
+          {
+              var gasCheck = document.getElementById("gas");
+              if(gas.checked)
+              {
+                  
+               d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("circle")
       .data(dataCrude)
       .enter()
@@ -152,6 +145,16 @@
           .html(formatTimeC(fmt1(d.Date)) + "<br/>" + "Crude Price: " + d.USCrude);
       }).on("mouseout", function(d) {div.transition().duration(500).style("opacity",0)})
       ;
+                  
+              }
+              else
+              {
+                  d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
+      .selectAll("circle").remove();
+              }
+    }
+    
+      
 
        d3.select('svg').append("g").attr("transform", "translate("+50+","+50+")")
       .selectAll("ellipse")
