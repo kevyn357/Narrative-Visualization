@@ -46,6 +46,7 @@
           var x = d3.scaleTime().domain([new Date(2000,01,01), new Date(2022,12,31)]).range([0,1500]);
           var yCrude = d3.scaleLinear().domain([0, 150]).range([425,0]);
     var yPump = d3.scaleLinear().domain([0, 5.2]).range([425,0]);
+
     
     function makePres()
           {
@@ -118,6 +119,7 @@
                   d3.select("#jb").remove();
               }
     }
+    makePres();
     function makeMidterm()
           {
               var midCheck = document.getElementById("midterm");
@@ -194,19 +196,19 @@
           //https://stackoverflow.com/questions/29910194/d3-js-vertical-line-on-a-time-axis
           //https://stackoverflow.com/questions/34455345/d3-js-appendline-doesnt-show-up
 
-          d3.select("svg").append("line")
-                  .attr("x1", x(fmt3("24-Feb-2022")+50))
+          d3.select("svg").append("line").attr("transform", "translate("+50+","+50+")")
+                  .attr("x1", x(fmt3("24-Feb-2022")))
                   .attr("y1", 500)
-                  .attr("x2", x(fmt3("24-Feb-2022")+50))
+                  .attr("x2", x(fmt3("24-Feb-2022")))
                   .attr("y2", 100)
                   .attr("stroke-width", 1)
                   .attr("id", "putty")
                   .attr("stroke", "black");
       
-          d3.select("svg").append("line")
-                  .attr("x1", x(fmt3("11-Sep-2001")+50))
+          d3.select("svg").append("line").attr("transform", "translate("+50+","+50+")")
+                  .attr("x1", x(fmt3("11-Sep-2001")))
                   .attr("y1", 500)
-                  .attr("x2", x(fmt3("11-Sep-2001")+50))
+                  .attr("x2", x(fmt3("11-Sep-2001")))
                   .attr("y2", 100)
                   .attr("stroke-width", 1)
                   .attr("id", "911")
