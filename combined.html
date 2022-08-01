@@ -200,7 +200,7 @@
                   .attr("x1", x(fmt3("24-Feb-2022")))
                   .attr("y1", 450)
                   .attr("x2", x(fmt3("24-Feb-2022")))
-                  .attr("y2", 100)
+                  .attr("y2", 50)
                   .attr("stroke-width", 1)
                   .attr("id", "putty")
                   .attr("stroke", "black");
@@ -209,7 +209,7 @@
                   .attr("x1", x(fmt3("11-Sep-2001")))
                   .attr("y1", 450)
                   .attr("x2", x(fmt3("11-Sep-2001")))
-                  .attr("y2", 100)
+                  .attr("y2", 50)
                   .attr("stroke-width", 1)
                   .attr("id", "911")
     .attr("stroke", "black");
@@ -249,7 +249,7 @@
           div.transition().duration(200).style("opacity",1)
           div.style("left", (d3.event.pageX)+"px")
           .style("top", (d3.event.pageY)+"px")
-          .html(formatTimeP(fmt1(d.Date)) + "<br/>" + "Gasoline Price: " + d.USRetail);
+          .html(formatTimeP(fmt2(d.Date)) + "<br/>" + "Gasoline Price: " + d.USRetail);
       }).on("mouseout", function(d) {div.transition().duration(500).style("opacity",0)})
       ;
 
@@ -294,7 +294,7 @@
       d3.select("svg").append("text")
       .attr("transform", "rotate(90)")
    .attr("x", 275)
-   .attr("y", -1525)
+   .attr("y", -1575)
    .style("text-anchor", "middle")
       .text("Gasoline Price USD/Gallon");
 
